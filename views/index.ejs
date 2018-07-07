@@ -15,6 +15,7 @@
         <h1>Search</h1>
     </div>
 
+<<<<<<< HEAD
     <br>
     <div class="container">
 
@@ -41,10 +42,28 @@
                 </tr>
             </thead>
             <tbody>
+=======
+    <br>
+    <div class="container">
+>>>>>>> c40eefb78200f831a87f3fdb979b1ce2f6b4b09d
 
-                <!--printing mysql data with the help of map function-->
-                <%  rows.map((i,idx)=>{ %>
+        <form action="/" id="myForm" method="GET">
+            <input type="text" id="id" name="searchstring" class="form-control" name="id" style="width: 60%;margin-top: -10%;line-height: 246%;margin-left: 19%;"
+            autofocus/>
+            <button type="submit" class="fa fa-search" style="float: left;font-size: 310%;margin-right: -15%;margin-left: 80%;margin-top: -52px;width: 7%;height:53px"
+            /></button>
+        </form>
+    </div>
+    <br>
+    
+    <br>
+    <br>
+   
+    <div class="container">
+            <table id="table" class="table table-hover table-bordered">
+                <thead>
                     <tr>
+<<<<<<< HEAD
                         <td>
                             <%= idx+1 %>
                         </td>
@@ -61,11 +80,44 @@
                             <%= i.body %>
                         </td>
 
+=======
+                        <th>Sr. No</th>
+                        <th>User Id</th>
+                        <th>title</th>
+                        <th>body</th>
+    
+>>>>>>> c40eefb78200f831a87f3fdb979b1ce2f6b4b09d
                     </tr>
-                    <% }) %>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+    
+                    <!--printing mysql data with the help of map function-->
+
+                    <%  rows.map(i=>{ 
+                        i.map(j=>{
+                        %>
+                        
+                        <tr>
+                            <td>
+                                    <%= j.id %>
+                            </td>
+                            <td>
+                                <%= j.userId %>
+                            </td>
+                          
+                            <td>
+                                <%= j.title %>
+                            </td>
+                            <td>
+                                <%= j.body %>
+                            </td>
+    
+                        </tr>
+                        <%}) }) %>
+                </tbody>
+            </table>
+        </div>
+      
 </body>
 <script>
    function getUrlVars() {
@@ -99,5 +151,8 @@ console.log(getUrlVars()["searchstring"]);
 }
 
 
+<<<<<<< HEAD
 </script>
+=======
+>>>>>>> c40eefb78200f831a87f3fdb979b1ce2f6b4b09d
 </html>
