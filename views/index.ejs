@@ -14,20 +14,22 @@
     <div class="jumbotron text-center">
         <h1>Search</h1>
     </div>
-   
+
     <br>
     <div class="container">
-       
-        <form action="/" method="GET">
-        <input type="text" id="id" name="searchstring" class="form-control" name="id" style="width: 60%;margin-top: -10%;line-height: 246%;margin-left: 19%;"/>
-        <button type="submit" class="fa fa-search" style="float: left;font-size: 310%;margin-right: -15%;margin-left: 80%;margin-top: -52px;width: 7%;height:53px" /></button>
-    </form>
-</div>
-<br>
-<br>
-<br>
-<div class="container">
- <table id="table" class="table table-hover table-bordered">
+
+        <form action="/" id="myForm" method="GET">
+            <input type="text" id="id" name="searchstring" class="form-control" name="id" style="width: 60%;margin-top: -10%;line-height: 246%;margin-left: 19%;" onkeyup="drun()"
+            autofocus/>
+            <!-- <button type="submit" class="fa fa-search" style="float: left;font-size: 310%;margin-right: -15%;margin-left: 80%;margin-top: -52px;width: 7%;height:53px"
+            /></button> -->
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <table id="table" class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Sr. No</th>
@@ -35,7 +37,7 @@
                     <th>name</th>
                     <th>mobile</th>
                     <th>Product</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -43,9 +45,9 @@
                 <!--printing mysql data with the help of map function-->
                 <%  rows.map((i,idx)=>{ %>
                     <tr>
-                            <td>
-                                    <%= idx+1 %>
-                                </td>
+                        <td>
+                            <%= idx+1 %>
+                        </td>
                         <td>
                             <%= i.userId %>
                         </td>
@@ -58,12 +60,44 @@
                         <td>
                             <%= i.body %>
                         </td>
-                      
+
                     </tr>
                     <% }) %>
             </tbody>
         </table>
     </div>
 </body>
+<script>
+   function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+if(getUrlVars()["searchstring"]==''){
+    console.log('nothing');
+    document.getElementById("id").value='';
+}
+else{
+document.getElementById("id").value=getUrlVars()["searchstring"];
+console.log('something');
+}
+console.log(getUrlVars()["searchstring"]);
+    function drun() {
+        
+        setInterval( focuss, 3000);
+        function focuss(){
+            
+            document.getElementById("myForm").submit();
+            console.log(getUrlVars()["searchstring"]);
+            
 
+
+        }
+   
+}
+
+
+</script>
 </html>
